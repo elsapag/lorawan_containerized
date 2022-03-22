@@ -21,4 +21,5 @@ in the same container under the same VPN.
 
 Please make sure that your .ovpn file will have the same name as in the shell script.
 
+If everything has been built successfully, you will be able to see ChirpStack App interface through <a href='http//localhost:8003'>http//localhost:8003</a>. <br>
 More information about ChirpStack you may find <a href="https://www.chirpstack.io/">here</a>.
