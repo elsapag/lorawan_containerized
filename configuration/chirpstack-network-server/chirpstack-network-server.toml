@@ -63,4 +63,4 @@ timezone="Local"
 [join_server.default]
 # Default server endpoint.
 # This API is provided by ChirpStack Application Server.
-server="https//10.7.0.72:8003"
+server="https//localhost:8003"
