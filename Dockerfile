@@ -19,9 +19,6 @@ COPY configuration/chirpstack-gateway-bridge/. /etc/chirpstack-gateway-bridge/
 COPY configuration/chirpstack-network-server/. /etc/chirpstack-network-server/
 COPY configuration/chirpstack-application-server/. /etc/chirpstack-application-server/
 COPY configuration/eclipse-mosquitto/. /etc/mosquitto/
-#COPY configuration/redis/. /etc/redis/
-#COPY pg_hba.conf /etc/postgresql/12/main/
-#COPY postgresql.conf /etc/postgresql/12/main/
 
 ENV POSTGRES_PASSWORD=root 
 
