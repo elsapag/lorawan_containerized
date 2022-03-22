@@ -1,0 +1,31 @@
+# See https://www.chirpstack.io/application-server/install/config/ for a full
+# configuration example and documentation.
+
+[general]
+# debug=5, info=4, warning=3, error=2, fatal=1, panic=0
+log_level=4
+
+[postgresql]
+dsn="postgres://chirpstack_as:chirpstack_as@postgresql/chirpstack_as?sslmode=disable"
+
+
+# Automatically apply database migrations.
+#
+# It is possible to apply the database-migrations by hand
+# (see https://github.com/brocaar/chirpstack-application-server/tree/master/migrations)
+# or let ChirpStack Application Server migrate to the latest state automatically, by using
+# this setting. Make sure that you always make a backup when upgrading Lora
+# App Server and / or applying migrations.
+automigrate=true
+
+[application_server.integration.mqtt]
+server="tcp://openvpn:1884"
+
+[application_server.api]
+bind= "0.0.0.0:8001"
+public_host="chirpstack-application-server:8001"
+
+[application_server.external_api]
+bind="0.0.0.0:8088"
+# You can generate the jwt_secret by executing the command 'openssl rand -base64 32'
+jwt_secret="jwt_secret"
