@@ -1,0 +1,32 @@
+version: "3"
+
+services:
+  openvpn:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    cap_add: #This step is for bypassing the error: Cannot ioctl TUNSETIFF tap: Operation not permitted (errno=1)
+      - ALL
+    volumes:
+      - ovpn-data-lora:/etc/openvpn
+    depends_on:
+      - postgresql
+    hostname: docker-openvpn
+  
+
+  postgresql:
+    image: postgres
+    environment:
+      POSTGRES_PASSWORD: root 
+    volumes:
+      - ./postgresql:/docker-entrypoint-initdb.d
+      - postgresqldata:/var/lib/postgresql/data
+
+    expose:
+      - 5432
+
+
+volumes:
+  ovpn-data-lora:
+  postgresqldata:
+
